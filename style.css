@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald|Pacifico);
+
+body {
+  width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #b1393b;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 75px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 1px 1px white;
+
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  margin: -4px 5px 0px 5px;
+}
+
+h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  margin: 0px 5px 0px 5px;
+}
+
+h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin: 0px 5px 30px 10px;
+}
+
+#burrito {
+  background-image: url("Burrito.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: white;
+  border: 5px solid #d9bf62;
+  border-radius: 5px;
+  width: 560px;
+  height: 250px;
+  float: left;
+  margin: 5px;
+}
+
+#sidebar {
+  background-color: white;
+  float: right;
+  border: 5px solid #d9bf62;
+  border-radius: 5px;
+  width: 100px;
+  height: 250px;
+  margin: 5px;
+}
+
+#ingredients-list {
+  background-color: white;
+  border: 5px solid #d9bf62;
+  border-radius: 5px;
+  width: 680px;
+  height: 180px;
+  margin: 275px 5px 5px 5px;
+  overflow: scroll;
+}
+
+.ingredients {
+  display: inline;
+  margin: 0px;
+}
+
+
+img {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+}
+
+
+/*
+green: #a1d2bc
+red: #b1393b
+white: #fcf9f2
+yellow: #d9bf62
+blue: #88c6db
+*/
