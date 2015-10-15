@@ -57,12 +57,14 @@ div {
   height: 120px;
   margin: 0px 5px 5px 5px;
   float: left;
+  background-color: white;
 }
 
 #title-text {
   width: 680px;
   position: absolute;
-  margin: -20px 5px 0px 5px;
+  margin: -24px 5px 0px 5px;
+  background-color: #b1393b;
 }
 
 #burrito {
@@ -74,9 +76,9 @@ div {
   border: 5px solid #d9bf62;
   border-radius: 5px;
   width: 560px;
-  height: 250px;
+  height: 260px;
   float: left;
-  margin: 100px 5px 5px 5px;
+  margin: 96px 5px 5px 5px;
 }
 
 #sidebar {
@@ -85,8 +87,8 @@ div {
   border: 5px solid #d9bf62;
   border-radius: 5px;
   width: 100px;
-  height: 250px;
-  margin: 100px 5px 5px 5px;
+  height: 260px;
+  margin: 96px 5px 5px 5px;
 }
 
 #ingredients-list {
@@ -94,7 +96,7 @@ div {
   border: 5px solid #d9bf62;
   border-radius: 5px;
   width: 680px;
-  height: 220px;
+  height: 210px;
   margin: 5px 5px 5px 5px;
   overflow: scroll;
   display: inline block;
@@ -137,7 +139,7 @@ div {
   border-radius: 5px;
   width: 200px;
   height: 60px;
-  margin: 5px 5px 5px 150px;
+  margin: 2px 5px 5px 150px;
 }
 
 #startover {
@@ -149,7 +151,7 @@ div {
   border-radius: 5px;
   width: 200px;
   height: 60px;
-  margin: 5px 5px 5px 5px;
+  margin: 2px 5px 5px 5px;
 }
 
 .ingtext {
