@@ -35,6 +35,36 @@ h4 {
   margin: 0px 5px 30px 10px;
 }
 
+h5 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 25px;
+  margin: 0px 5px 0px 5px;
+}
+
+p {
+  margin-top: -5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+div {
+  width: 100px;
+  height: 120px;
+  margin: 0px 5px 5px 5px;
+  float: left;
+}
+
+#title-text {
+  width: 680px;
+  position: absolute;
+  margin: -20px 5px 0px 5px;
+}
+
 #burrito {
   background-image: url("Burrito.jpg");
   background-repeat: no-repeat;
@@ -46,7 +76,7 @@ h4 {
   width: 560px;
   height: 250px;
   float: left;
-  margin: 5px;
+  margin: 100px 5px 5px 5px;
 }
 
 #sidebar {
@@ -56,7 +86,7 @@ h4 {
   border-radius: 5px;
   width: 100px;
   height: 250px;
-  margin: 5px;
+  margin: 100px 5px 5px 5px;
 }
 
 #ingredients-list {
@@ -64,21 +94,43 @@ h4 {
   border: 5px solid #d9bf62;
   border-radius: 5px;
   width: 680px;
-  height: 180px;
-  margin: 275px 5px 5px 5px;
+  height: 220px;
+  margin: 5px 5px 5px 5px;
   overflow: scroll;
+  display: inline block;
 }
 
-.ingredients {
-  display: inline;
-  margin: 0px;
-}
-
-
-img {
-  width: 100px;
+#info {
+  background-color: white;
+  border: 5px solid #d9bf62;
+  border-radius: 5px;
+  width: 680px;
   height: 100px;
-  margin: 5px;
+  margin: 5px 5px 0px 5px;
+}
+
+#info-text {
+  margin-top: -5px;
+  margin-left: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+}
+
+#start {
+  float: right;
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 1px 1px white;
+  background-color: #88c6db;
+  border-radius: 5px;
+  width: 100px;
+  height: 60px;
+  margin: -15px 5px 5px 0px;
+}
+
+.ingtext {
+  text-align: center;
 }
 
 
