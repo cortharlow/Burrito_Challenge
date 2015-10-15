@@ -1,15 +1,13 @@
 window.onload = function() {
-
   var BurritoChallenge = (function() {
 
     //17 ingredients
     var ingredientsArr = ['White Rice', 'Brown Rice', 'Pinto Beans', 'Black Beans', 'Barbacoa', 'Carnitas', 'Chicken', 'Steak', 'Tomatoes', 'Corn', 'Green Salsa', 'Red Salsa', 'Sour Cream', 'Cheese', 'Fajitas', 'Lettuce', 'Guacamole'];
-    var wins = 0;
+    var wins = 3;
 
     var timerCountdown = function() {
       timerHandle = setInterval(function () {
         var currentTime = Number($('#timer').text());
-        console.log(currentTime);
         currentTime--;
         $('#timer').text(currentTime);
       }, 1000);
@@ -30,27 +28,31 @@ window.onload = function() {
     }
 
     var orderAlert = function() {
-      var alert = 'New Order!\n';
-      var numIng = 0;
-      if (wins < 2) {
-        numIng = 5;
-        for (var i = 0; i <= numIng; i++) {
-          alert += '\n'+ingredientsArr[num];
-        }
-      }
-
-      else if (wins > 2) {
-
+      var alert = 'New Order!';
+      if (wins > 6) {
+        alert += '\n'+getOrder(9);
       }
 
       else if (wins > 4) {
-
+        alert += '\n'+getOrder(7);
       }
 
-      else if (wins > 6) {
-
+      else if (wins > 2) {
+        alert += '\n'+getOrder(5);
       }
-      alert(alert);
+
+      else {
+        alert += '\n'+getOrder(3);
+      }
+      window.alert(alert);
+    }
+
+    var getOrder = function (numIng) {
+      var order = '';
+      for (var i = 0; i <= numIng; i++) {
+        order += '\n'+ingredientsArr[randomNum()];
+      }
+      return order;
     }
 
     return {
@@ -60,8 +62,6 @@ window.onload = function() {
           timerCountdown();
           addButtons();
           orderAlert();
-
-
         })
       },
 
@@ -69,6 +69,6 @@ window.onload = function() {
 
 
     }
-  })();
+})();
   BurritoChallenge.buttonStart();
 }

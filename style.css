@@ -110,8 +110,7 @@ div {
 }
 
 #info-text {
-  margin-top: -5px;
-  margin-left: 5px;
+  margin: -5px 200px 0px 5px;
   font-family: 'Oswald', sans-serif;
   font-size: 15px;
 }
@@ -124,9 +123,9 @@ div {
   text-shadow: 1px 1px white;
   background-color: #88c6db;
   border-radius: 5px;
-  width: 100px;
+  width: 150px;
   height: 60px;
-  margin: -15px 5px 5px 0px;
+  margin: -15px 35px 5px 0px;
 }
 
 #finish {
