@@ -129,10 +129,33 @@ div {
   margin: -15px 5px 5px 0px;
 }
 
+#finish {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 1px 1px white;
+  background-color: #88c6db;
+  border-radius: 5px;
+  width: 200px;
+  height: 60px;
+  margin: 5px 5px 5px 150px;
+}
+
+#startover {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 1px 1px white;
+  background-color: #88c6db;
+  border-radius: 5px;
+  width: 200px;
+  height: 60px;
+  margin: 5px 5px 5px 5px;
+}
+
 .ingtext {
   text-align: center;
 }
-
 
 /*
 green: #a1d2bc
