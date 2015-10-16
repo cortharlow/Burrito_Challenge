@@ -79,6 +79,7 @@ div {
   height: 260px;
   float: left;
   margin: 96px 5px 5px 5px;
+  overflow: hidden;
 }
 
 #sidebar {

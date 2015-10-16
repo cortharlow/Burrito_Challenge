@@ -13,16 +13,19 @@ window.onload = function() {
 
 //////////////////////////Private Functions///////////////////////
 
+    //Begins the countdown process using setInterval; if the currentTime reaches 0, the if statement prevents the counter from going negative
     var timerCountdown = function() {
       timerHandle = setInterval(function () {
         currentTime--;
         $('#timer').text(currentTime);
         if (currentTime === 0) {
           clearInterval(timerHandle);
+          loser();
         }
       }, 1000);
     }
 
+    //Upon pressing Start, removes entire info section div, expands ingredients list, and appends two buttons to the body: Finish Burrito and Start Over
     var addButtons = function() {
       $('#info').remove();
       var finish = $('<button>Finish Burrito</button>').attr('id', 'finish');
@@ -32,11 +35,13 @@ window.onload = function() {
       $('body').append(startover);
     }
 
+    //Calculates a random number with a maximum number parameter
     var randomNum = function(max) {
       var num = Math.floor(Math.random() * (max - 0 + 1)) + 0;
       return num;
     }
 
+    //Creates a new order list by calling getOrder function; number of ingredients increases with more wins. After getting order, html alert shows user what ingredients to remember and click
     var orderAlert = function() {
       var alert = 'New Order!';
       if (wins > 6) {
@@ -55,6 +60,7 @@ window.onload = function() {
       console.log(alert);
     }
 
+    //Parameter determines the number of ingredients to be included in the burrito; generates random number and pushes ingredient at that index number into the alert form and checkOrder array, then removes that ingredient from the ingredientsArr; returns order to be injected in HTML alert
     var getOrder = function (numIng) {
       var currentArr = ingredientsArr;
       var max = 16
@@ -69,19 +75,55 @@ window.onload = function() {
       return order;
     }
 
+    //Adds click event to Finish Burrito button; stops timer at its current time, generates an array of the selected ingredients that have been appended to the burrito
     var finishButton = function() {
       $('body').on('click', '#finish', (function() {
         clearInterval(timerHandle);
-        console.log(checkOrder);
-        var num = checkOrder.length;
+        var numBur = $('.inside').length;
         var burritoArr = [];
-        for (var i = 0; i < num; i++) {
+        for (var i = 0; i < numBur; i++) {
           burritoArr.push($('p.ingtext').eq(i).text());
         }
-        console.log(burritoArr);
+        checkWin(checkOrder, burritoArr, numBur);
       }));
     }
 
+    var checkWin = function(orderArray, burritoArray, burritoLength) {
+      var orderLength = orderArray.length;
+      var match = [];
+      var matchNum = 0;
+      if (orderLength !== burritoLength) {
+        loser();
+      }
+      else {
+        for (var i = 0; i < orderLength; i++) {
+          for (var j = 0; j < burritoLength; j++) {
+            if (orderArray[i] === burritoArray[j]) {
+              match.push(true);
+              matchNum++;
+            }
+          }
+        }
+        console.log(match);
+        if (match.length === burritoLength) {
+          winner();
+        }
+        else {
+          loser();
+        }
+      }
+    }
+
+    var winner = function() {
+      wins++;
+      console.log('WINNER');
+    }
+
+    var loser = function() {
+      console.log('LOSER');
+    }
+
+    //Adds click event to Start Over button; clicking forces a page refresh
     var startOver = function() {
       $('body').on('click', '#startover', (function() {
         location.reload(true);
@@ -116,7 +158,7 @@ window.onload = function() {
       startoverButton : function() {
         startOver();
       }
-      
+
     }
 })();
   BurritoChallenge.buttonStart();
