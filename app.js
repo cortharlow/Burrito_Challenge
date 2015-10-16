@@ -13,7 +13,9 @@ window.onload = function() {
 
 //////////////////////////Private Functions///////////////////////
 
-    //Begins the countdown process using setInterval; if the currentTime reaches 0, the if statement prevents the counter from going negative
+    //Begins the countdown process using setInterval;
+    //if the currentTime reaches 0, the if statement
+    //prevents the counter from going negative
     var timerCountdown = function() {
       timerHandle = setInterval(function () {
         currentTime--;
@@ -25,7 +27,9 @@ window.onload = function() {
       }, 1000);
     }
 
-    //Upon pressing Start, removes entire info section div, expands ingredients list, and appends two buttons to the body: Finish Burrito and Start Over
+    //Upon pressing Start, removes entire info section div,
+    //expands ingredients list, and appends two buttons to the body:
+    //Finish Burrito and Start Over
     var addButtons = function() {
       $('#info').remove();
       var finish = $('<button>Finish Burrito</button>').attr('id', 'finish');
@@ -33,6 +37,19 @@ window.onload = function() {
       $('#ingredients-list').css('height', '270px');
       $('body').append(finish);
       $('body').append(startover);
+      finishButton();
+    }
+
+    //Upon Start, adds click events to each ingredient and,
+    //when clicked, each ingredient moves into burrrito div
+    //and black border styling is added
+    var addIngredientClicks = function() {
+      $('#ingredients-list').on('click', '.click', (function() {
+        $(this).attr('class', 'inside');
+        $(this).css('border', '4px solid black').css('border-radius', '5px').css('margin',
+      '1px 0px 1px 3px');
+        $('#burrito').append($(this));
+      }))
     }
 
     //Calculates a random number with a maximum number parameter
@@ -41,7 +58,10 @@ window.onload = function() {
       return num;
     }
 
-    //Creates a new order list by calling getOrder function; number of ingredients increases with more wins. After getting order, html alert shows user what ingredients to remember and click
+    //Creates a new order list by calling getOrder function;
+    //number of ingredients increases with more wins.
+    //After getting order, html alert shows user what ingredients
+    //to remember and click
     var orderAlert = function() {
       var alert = 'New Order!';
       if (wins > 6) {
@@ -112,22 +132,44 @@ window.onload = function() {
           loser();
         }
       }
+      resetIngredients();
+    }
+
+    //When playing the game, this will add additional click
+    //events to those ingredients that are in the burrito so
+    //that they may be removed before user clicks Finish Burrito
+    var resetIngredients = function() {
+      var numOfIng = $('.inside').length;
+      for (var i = 0; i < numOfIng; i++) {
+        $('.inside').eq(0).removeAttr('style');
+        $('#ingredients-list').append($('.inside').eq(0));
+      }
+      $('.inside').attr('class', 'click');
+      ingredientsArr = ['White Rice', 'Brown Rice', 'Pinto Beans', 'Black Beans', 'Barbacoa', 'Carnitas', 'Chicken', 'Steak', 'Tomatoes', 'Corn', 'Green Salsa', 'Red Salsa', 'Sour Cream', 'Cheese', 'Fajitas', 'Lettuce', 'Guacamole'];
     }
 
     var winner = function() {
       wins++;
+      $('#wins').text(wins);
+      $('#finish').text('Next Order');
+      $('#finish').attr('id', 'startRounds');
+      $('#finish').removeAttr('#finish');
+      $('button#startRounds').click(function() {
+        currentTime = 31;
+        timerCountdown();
+        orderAlert();
+        addIngredientClicks();
+        addButtons();
+        $('#startover').remove();
+        $('#startRounds').remove();
+      })
       console.log('WINNER');
     }
 
     var loser = function() {
+      $('#finish').remove();
+      $('#startover').css('margin-left', '250px')
       console.log('LOSER');
-    }
-
-    //Adds click event to Start Over button; clicking forces a page refresh
-    var startOver = function() {
-      $('body').on('click', '#startover', (function() {
-        location.reload(true);
-      }));
     }
 
 /////////////////////////PUBLIC FUNCTIONS/////////////////////////
@@ -139,30 +181,18 @@ window.onload = function() {
           timerCountdown();
           addButtons();
           orderAlert();
+          addIngredientClicks();
         })
       },
 
-      addIngredientClicks : function() {
-        $('#ingredients-list').on('click', '.click', (function() {
-          $(this).attr('class', 'inside');
-          $(this).css('border', '4px solid black').css('border-radius', '5px').css('margin',
-        '1px 0px 1px 3px');
-          $('#burrito').append($(this));
-        }))
-      },
-
-      finishButton : function() {
-        finishButton();
-      },
-
       startoverButton : function() {
-        startOver();
+        //Adds click event to Start Over button; clicking forces a page refresh
+        $('body').on('click', '#startover', (function() {
+          location.reload(true);
+        }));
       }
-
     }
 })();
   BurritoChallenge.buttonStart();
-  BurritoChallenge.addIngredientClicks();
-  BurritoChallenge.finishButton();
   BurritoChallenge.startoverButton();
 }
