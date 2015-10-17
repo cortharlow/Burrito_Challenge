@@ -155,6 +155,18 @@ div {
   margin: 2px 5px 5px 5px;
 }
 
+#startRounds {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 1px 1px white;
+  background-color: #88c6db;
+  border-radius: 5px;
+  width: 200px;
+  height: 60px;
+  margin: 2px 5px 5px 150px;
+}
+
 .ingtext {
   text-align: center;
 }
