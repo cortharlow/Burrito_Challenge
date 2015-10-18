@@ -64,20 +64,27 @@ window.onload = function() {
     //After getting order, html alert shows user what ingredients
     //to remember and click
     var orderAlert = function() {
-      var alert = 'New Order!';
+      var alert = '<h6>New Order:</h6>';
       if (wins > 6) {
-        alert += '\n'+getOrder(7);
+        alert += getOrder(7);
       }
       else if (wins > 4) {
-        alert += '\n'+getOrder(5);
+        alert += getOrder(5);
       }
       else if (wins > 2) {
-        alert += '\n'+getOrder(4);
+        alert += getOrder(4);
       }
       else {
-        alert += '\n'+getOrder(3);
+        alert += getOrder(3);
       }
-      window.alert(alert);
+
+      var $orderText = $('<div></div>').attr('id', 'orderList').html(alert);
+      $('#burrito').prepend($orderText);
+      window.setTimeout ( function () {
+        $('#orderList').remove();
+        timerCountdown();
+        addIngredientClicks();
+      }, 5000);
       console.log(alert);
     }
 
@@ -88,7 +95,7 @@ window.onload = function() {
       var order = '';
       for (var i = 0; i <= numIng; i++) {
         var num = randomNum(max);
-        order += '\n'+currentArr[num];
+        order += '<br> • ' + currentArr[num];
         checkOrder.push(currentArr[num]);
         currentArr.splice(num, 1);
         max--;
@@ -110,7 +117,6 @@ window.onload = function() {
     }
 
     var checkWin = function(orderArray, burritoArray, burritoLength) {
-      console.log(orderArray + ' | ' + burritoArray + ' | ' + burritoLength);
       var orderLength = orderArray.length;
       var match = [];
       var matchNum = 0;
@@ -126,7 +132,6 @@ window.onload = function() {
             }
           }
         }
-        console.log(match);
         if (match.length === burritoLength) {
           winner();
         }
@@ -164,9 +169,7 @@ window.onload = function() {
       $finishBtn.off();
       $('button#startRounds').click(function() {
         currentTime = 31;
-        timerCountdown();
         orderAlert();
-        addIngredientClicks();
         addButtons();
         $('#startover').remove();
         $('#startRounds').remove();
@@ -189,10 +192,10 @@ window.onload = function() {
 
       buttonStart : function() {
         $('button#start').click(function() {
-          timerCountdown();
+          //timerCountdown();
           addButtons();
           orderAlert();
-          addIngredientClicks();
+          //addIngredientClicks();
         })
       },
 
