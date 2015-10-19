@@ -80,7 +80,7 @@ window.onload = function() {
 
       //Injects a div including the order then adds a click event
       //that removes the div, begins the countdown clock and adds
-      //click events to each
+      //12click events to each
       var $orderText = $('<div></div>').attr('id', 'orderList').html(alert+'<br><span style="color:#b1393b;margin-left:25px">Click to Begin</span>');
       $('#burrito').prepend($orderText);
       $('#orderList').on('click', (function() {
