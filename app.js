@@ -65,26 +65,29 @@ window.onload = function() {
     //to remember and click
     var orderAlert = function() {
       var alert = '<h6>New Order:</h6>';
-      if (wins > 6) {
+      if (wins > 5) {
         alert += getOrder(7);
       }
-      else if (wins > 4) {
+      else if (wins > 3) {
         alert += getOrder(5);
       }
-      else if (wins > 2) {
+      else if (wins > 1) {
         alert += getOrder(4);
       }
       else {
         alert += getOrder(3);
       }
 
-      var $orderText = $('<div></div>').attr('id', 'orderList').html(alert);
+      //Injects a div including the order then adds a click event
+      //that removes the div, begins the countdown clock and adds
+      //click events to each
+      var $orderText = $('<div></div>').attr('id', 'orderList').html(alert+'<br><span style="color:#b1393b;margin-left:25px">Click to Begin</span>');
       $('#burrito').prepend($orderText);
-      window.setTimeout ( function () {
+      $('#orderList').on('click', (function() {
         $('#orderList').remove();
         timerCountdown();
         addIngredientClicks();
-      }, 5000);
+      }));
       console.log(alert);
     }
 
@@ -116,6 +119,9 @@ window.onload = function() {
       }));
     }
 
+    /*
+    Function that requires three parameters: an array containing the ingredients of the order, array containing the ingredients of the burrito created by the user, and the length of the burrito array. First checks that the two lengths are equal, if not then immediate loss, then moves through both arrays to check that all ingredients are matched in both. Calls winner or loser function then resets the ingredients
+    */
     var checkWin = function(orderArray, burritoArray, burritoLength) {
       var orderLength = orderArray.length;
       var match = [];
@@ -161,6 +167,8 @@ window.onload = function() {
     */
     var winner = function() {
       wins++;
+      var $notifyWin = $('<div></div>').attr('id', 'notifyWin').html('<h1 style="margin:60px">Winner!</h1>');
+      $('#burrito').prepend($notifyWin);
       $('#wins').text(wins);
       var $finishBtn = $('#finish');
       $finishBtn.text('Next Order');
@@ -171,19 +179,20 @@ window.onload = function() {
         currentTime = 31;
         orderAlert();
         addButtons();
+        $('#notifyWin').remove();
         $('#startover').remove();
         $('#startRounds').remove();
       });
-      console.log('WINNER');
     }
 
     /*
     Removes finish burrito button, therefore preventing user from continuing in the game and forcing her to startover, and moves the startover button to be centered on the page
     */
     var loser = function() {
+      var $notifyLoss = $('<div></div>').attr('id', 'notifyLoss').html('<h1 style="font-size:40px;color:#b1393b;text-shadow: 1px 1px black;margin-top:200px">No Burrito for You!</h1>');
+      $('#burrito').prepend($notifyLoss);
       $('#finish').remove();
       $('#startover').css('margin-left', '250px')
-      console.log('LOSER');
     }
 
 /////////////////////////PUBLIC FUNCTIONS/////////////////////////
@@ -192,10 +201,8 @@ window.onload = function() {
 
       buttonStart : function() {
         $('button#start').click(function() {
-          //timerCountdown();
           addButtons();
           orderAlert();
-          //addIngredientClicks();
         })
       },
 

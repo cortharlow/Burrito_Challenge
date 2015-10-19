@@ -42,9 +42,10 @@ h5 {
 }
 
 h6 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 20px;
-  margin: 0px 5px 0px 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 25px;
+  margin: -5px 5px -30px 5px;
+  text-shadow: 1px 1px white;
 }
 
 p {
@@ -175,15 +176,48 @@ div {
 
 #orderList {
   position: absolute;
-  margin: 0 auto;
-  margin-top: 100px;
-  border: 5px solid black;
+  margin: 5px 0px 0px 210px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 150px;
+  height: 250px;
+  background-color: #88c6db;
+  font-family: 'Oswald', sans-serif;
+}
 
+#notifyWin {
+  background-image: url("http://www.missionmission.org/wp-content/uploads/2012/04/mission-burrito-gif.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  border: 5px solid #d9bf62;
+  border-radius: 5px;
+  width: 560px;
+  height: 260px;
+  float: left;
+  margin: 96px 5px 5px 55px;
+}
+
+
+#notifyLoss {
+  background-image: url("http://i.imgur.com/WlecVPf.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  border: 5px solid #d9bf62;
+  border-radius: 5px;
+  width: 464px;
+  height: 260px;
+  float: left;
+  margin: 96px 5px 5px 95px;
 }
 
 .ingtext {
   text-align: center;
 }
+
 
 /*
 green: #a1d2bc
