@@ -23,4 +23,9 @@ clicking it.
 2. Didn't have time to look into some animation effects that I wanted to implement -- upon losing, highlighting the needed ingredients, bouncing effect when hovering over ingredients, etc.
 3. REALLY wanted to implement some Media Queries
 
+---
+#### Copyright Notice
 
+The media and information used in this app is for educational purposes.
+
+Project created with ♥ at General Assembly's Web Development Immersive.
