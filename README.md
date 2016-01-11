@@ -1,4 +1,4 @@
-#Burrito Challenge - GA Project 1
+#Burrito Challenge
 
 ##Introduction
 Burrito Challenge is a memory game built using HTML, CSS, Javascript and jQuery. 
