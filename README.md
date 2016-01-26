@@ -1,5 +1,7 @@
 #Burrito Challenge
 
+[TRY IT OUT HERE!](http://cortharlow.github.io/Burrito_Challenge/)
+
 ##Introduction
 Burrito Challenge is a memory game built using HTML, CSS, Javascript and jQuery. 
 The goal of the game is to remember a customer's order by clicking on the correct burrito ingredients within 30 a second timeframe.
